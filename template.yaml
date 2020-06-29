@@ -2,6 +2,7 @@ Parameters:
   ProjectName:
     Description: Project name
     Type: String
+    AllowedPattern: ^[a-z]*$
     Default: myproject
 Resources:
   CodeRepository:
@@ -9,3 +10,7 @@ Resources:
     Properties:
       RepositoryName: !Ref ProjectName
       RepositoryDescription: !Join [' ', [!Ref ProjectName, 'Project Code Repository']]
+  Storage:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+        BucketName: !Ref ProjectName
