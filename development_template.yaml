@@ -1,0 +1,11 @@
+Parameters:
+  ProjectName:
+    Description: Project name
+    Type: String
+    Default: myproject
+Resources:
+  CodeRepository:
+    Type: 'AWS::CodeCommit::Repository'
+    Properties:
+      RepositoryName: !Ref ProjectName
+      RepositoryDescription: !Join [' ',[!Ref ProjectName, 'Project Code Repository']]
